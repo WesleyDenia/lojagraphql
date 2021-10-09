@@ -5,12 +5,14 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Entity
+@Table(name = "clients")
 public class Client {
     @Id
-    private Long id;
+    private UUID id;
 
     @Column(nullable = false)
     private String name;

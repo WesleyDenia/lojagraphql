@@ -13,13 +13,10 @@ spring:
         dialect : org.hibernate.dialect.PostgreSQLDialect
         ddl-auto: none
         show-sql: true
+    hibernate:
+      ddl-auto: update
   datasource:
-    url: jdbc:postgres://tai.db.elephantsql.com/pjqsyaji
     username: pjqsyaji
     password: csjYy1hrcepMwldClxBc7BGT_cQTrPbe
     driver-class-name: org.postgresql.Driver
-  sql:
-    init:
-      mode:
-      schema-locations: classpath:/schema.sql
-      continue-on-error: true
+    url: jdbc:postgresql://tai.db.elephantsql.com/pjqsyaji
