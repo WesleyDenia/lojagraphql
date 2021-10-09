@@ -1,3 +1,8 @@
+scalar DateTime
+
 type Query {
     getCategory(id: ID) : Category
+    getProduct(id: ID) : Product
+    getClient(id: ID) : Client
+    getOrder(id: ID) : Order
 }

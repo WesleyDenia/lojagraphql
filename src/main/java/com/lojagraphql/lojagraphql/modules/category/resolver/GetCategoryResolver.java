@@ -1,6 +1,6 @@
-package com.lojagraphql.lojagraphql.resolver.category;
+package com.lojagraphql.lojagraphql.modules.category.resolver;
 
-import com.lojagraphql.lojagraphql.domain.Category;
+import com.lojagraphql.lojagraphql.modules.category.domain.Category;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 

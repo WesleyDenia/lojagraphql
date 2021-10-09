@@ -1,0 +1,8 @@
+type Product {
+    id: ID!
+    category: Category!
+    name: String!
+    image: String!
+    description: String
+    stock: Int!
+}

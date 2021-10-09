@@ -1,0 +1,6 @@
+type Order {
+    id: ID!
+    client: Client!
+    product: Product!
+    date: DateTime!
+}
