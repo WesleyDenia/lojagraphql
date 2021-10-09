@@ -1,8 +1,9 @@
 package com.lojagraphql.lojagraphql.modules.category.service;
 
 import com.lojagraphql.lojagraphql.modules.category.domain.Category;
+import com.lojagraphql.lojagraphql.modules.category.domain.CategoryInput;
 import com.lojagraphql.lojagraphql.modules.category.repository.CategoryRepository;
-import com.lojagraphql.lojagraphql.modules.category.translator.CategoryModelToDomain;
+import com.lojagraphql.lojagraphql.modules.category.translator.CategoryTranslator;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,11 +12,11 @@ import java.util.UUID;
 @Service
 public class CategoryService {
     private CategoryRepository categoryRepository;
-    private CategoryModelToDomain categoryModelToDomain;
+    private CategoryTranslator categoryTranslator;
 
-    public CategoryService(CategoryRepository repository, CategoryModelToDomain modelToDomain){
+    public CategoryService(CategoryRepository repository, CategoryTranslator modelToDomain){
         this.categoryRepository = repository;
-        this.categoryModelToDomain = modelToDomain;
+        this.categoryTranslator = modelToDomain;
     }
 
     public Category getCategoryById(UUID id){
@@ -23,8 +24,14 @@ public class CategoryService {
                 this.categoryRepository.findById(id);
 
         if(!category.isEmpty()){
-            return this.categoryModelToDomain.translate(category.get());
+            return this.categoryTranslator.translate(category.get());
         }
         return null;
+    }
+
+    public Category createCategory(CategoryInput input){
+        com.lojagraphql.lojagraphql.modules.category.model.Category category =
+                categoryTranslator.translateBack(input);
+        return categoryTranslator.translate(categoryRepository.save(category));
     }
 }
