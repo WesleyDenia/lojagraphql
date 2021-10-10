@@ -1,6 +1,6 @@
 type Product {
     id: ID!
-    category: Category!
+    category: CategoryResponse!
     name: String!
     image: String!
     description: String
