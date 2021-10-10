@@ -1,6 +1,6 @@
 package com.lojagraphql.lojagraphql.modules.product.resolver;
 
-import com.lojagraphql.lojagraphql.modules.category.domain.Category;
+import com.lojagraphql.lojagraphql.modules.category.domain.CategoryResponse;
 import com.lojagraphql.lojagraphql.modules.product.domain.Product;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ public class GetProductResolver implements GraphQLQueryResolver {
                 .id(id)
                 .name("Rato")
                 .image("https://www.worten.pt/i/69eab96609be7d000104e0b2dfde6d5915d7614c.jpg")
-                .category( new Category(categoryId, "Eletronicos"))
+                .categoryResponse( new CategoryResponse(categoryId, "Eletronicos"))
                 .stock(10).build();
     }
 }

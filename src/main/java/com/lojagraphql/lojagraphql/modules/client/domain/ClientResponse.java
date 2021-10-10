@@ -5,7 +5,7 @@ import lombok.Value;
 import java.util.UUID;
 
 @Value
-public class Client {
+public class ClientResponse {
     UUID id;
     String name;
 }

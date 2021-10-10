@@ -1,6 +1,6 @@
 package com.lojagraphql.lojagraphql.modules.order.domain;
 
-import com.lojagraphql.lojagraphql.modules.client.domain.Client;
+import com.lojagraphql.lojagraphql.modules.client.domain.ClientResponse;
 import com.lojagraphql.lojagraphql.modules.product.domain.Product;
 import lombok.Builder;
 import lombok.Value;
@@ -12,7 +12,7 @@ import java.util.UUID;
 @Builder
 public class Order {
     UUID id;
-    Client client;
+    ClientResponse clientResponse;
     Product product;
     LocalDateTime date;
 }

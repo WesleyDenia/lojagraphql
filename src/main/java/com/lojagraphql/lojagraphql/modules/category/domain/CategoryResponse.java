@@ -5,7 +5,7 @@ import lombok.Value;
 import java.util.UUID;
 
 @Value
-public class Category {
+public class CategoryResponse {
     UUID id;
     String name;
 }

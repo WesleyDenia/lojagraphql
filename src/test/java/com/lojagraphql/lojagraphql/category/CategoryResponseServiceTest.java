@@ -1,6 +1,7 @@
 package com.lojagraphql.lojagraphql.category;
 
 import com.lojagraphql.lojagraphql.modules.category.domain.CategoryInput;
+import com.lojagraphql.lojagraphql.modules.category.domain.CategoryResponse;
 import com.lojagraphql.lojagraphql.modules.category.model.Category;
 import com.lojagraphql.lojagraphql.modules.category.repository.CategoryRepository;
 import com.lojagraphql.lojagraphql.modules.category.service.CategoryService;
@@ -15,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 
-public class CategoryServiceTest {
+public class CategoryResponseServiceTest {
     @Test
     void should_return_null_if_repository_does_not_return_data(){
         UUID mockUUID = UUID.randomUUID();
@@ -41,7 +42,7 @@ public class CategoryServiceTest {
 
         CategoryTranslator mockCategoryTranslator = Mockito.mock(CategoryTranslator.class);
         Mockito.when(mockCategoryTranslator.translate(category)).thenReturn(
-                new com.lojagraphql.lojagraphql.modules.category.domain.Category(mockUUID, "categoryTest"));
+                new CategoryResponse(mockUUID, "categoryTest"));
 
         CategoryService service = new CategoryService(mockCategoryRepository, mockCategoryTranslator);
         assertEquals(service.getCategoryById(mockUUID).getName(),"categoryTest");
@@ -62,7 +63,7 @@ public class CategoryServiceTest {
 
 
         Mockito.when(mockCategoryTranslator.translate(categoryModel)).thenReturn(
-                new com.lojagraphql.lojagraphql.modules.category.domain.Category(mockUUID, "categoryTest"));
+                new CategoryResponse(mockUUID, "categoryTest"));
 
         CategoryService service = new CategoryService(mockCategoryRepository, mockCategoryTranslator);
         assertEquals(service.createCategory(categoryInput).getName(),"categoryTest");

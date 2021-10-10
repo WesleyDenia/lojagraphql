@@ -1,6 +1,6 @@
 package com.lojagraphql.lojagraphql.modules.product.resolver;
 
-import com.lojagraphql.lojagraphql.modules.category.domain.Category;
+import com.lojagraphql.lojagraphql.modules.category.domain.CategoryResponse;
 import com.lojagraphql.lojagraphql.modules.order.domain.Order;
 import com.lojagraphql.lojagraphql.modules.product.domain.Product;
 import graphql.kickstart.tools.GraphQLResolver;
@@ -18,7 +18,7 @@ public class GetProductByOrderResolver implements GraphQLResolver<Order> {
                 .id(productId)
                 .name("Rato")
                 .image("https://www.worten.pt/i/69eab96609be7d000104e0b2dfde6d5915d7614c.jpg")
-                .category( new Category(categoryId, "Eletronicos"))
+                .categoryResponse( new CategoryResponse(categoryId, "Eletronicos"))
                 .stock(10).build();
     }
 }

@@ -1,6 +1,6 @@
 package com.lojagraphql.lojagraphql.modules.product.domain;
 
-import com.lojagraphql.lojagraphql.modules.category.domain.Category;
+import com.lojagraphql.lojagraphql.modules.category.domain.CategoryResponse;
 import lombok.Builder;
 import lombok.Value;
 
@@ -10,7 +10,7 @@ import java.util.UUID;
 @Builder
 public class Product {
     UUID id;
-    Category category;
+    CategoryResponse categoryResponse;
     String name;
     String image;
     String description;
